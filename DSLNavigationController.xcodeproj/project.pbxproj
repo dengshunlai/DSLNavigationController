@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DD8AE0C91D538746007234BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8AE0C81D538746007234BE /* main.m */; };
+		DD8AE0CC1D538746007234BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8AE0CB1D538746007234BE /* AppDelegate.m */; };
+		DD8AE0CF1D538746007234BE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8AE0CE1D538746007234BE /* ViewController.m */; };
+		DD8AE0D21D538746007234BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD8AE0D01D538746007234BE /* Main.storyboard */; };
+		DD8AE0D41D538746007234BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD8AE0D31D538746007234BE /* Assets.xcassets */; };
+		DD8AE0D71D538746007234BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD8AE0D51D538746007234BE /* LaunchScreen.storyboard */; };
+		DD8AE0E21D538746007234BE /* DSLNavigationControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8AE0E11D538746007234BE /* DSLNavigationControllerTests.m */; };
+		DD8AE0ED1D538747007234BE /* DSLNavigationControllerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8AE0EC1D538747007234BE /* DSLNavigationControllerUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DD8AE0DE1D538746007234BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD8AE0BC1D538746007234BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD8AE0C31D538746007234BE;
+			remoteInfo = DSLNavigationController;
+		};
+		DD8AE0E91D538747007234BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD8AE0BC1D538746007234BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD8AE0C31D538746007234BE;
+			remoteInfo = DSLNavigationController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DD8AE0C41D538746007234BE /* DSLNavigationController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSLNavigationController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD8AE0C81D538746007234BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DD8AE0CA1D538746007234BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DD8AE0CB1D538746007234BE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DD8AE0CD1D538746007234BE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DD8AE0CE1D538746007234BE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DD8AE0D11D538746007234BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD8AE0D31D538746007234BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD8AE0D61D538746007234BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DD8AE0D81D538746007234BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD8AE0DD1D538746007234BE /* DSLNavigationControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSLNavigationControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD8AE0E11D538746007234BE /* DSLNavigationControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSLNavigationControllerTests.m; sourceTree = "<group>"; };
+		DD8AE0E31D538746007234BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD8AE0E81D538747007234BE /* DSLNavigationControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSLNavigationControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD8AE0EC1D538747007234BE /* DSLNavigationControllerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSLNavigationControllerUITests.m; sourceTree = "<group>"; };
+		DD8AE0EE1D538747007234BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD8AE0C11D538746007234BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD8AE0DA1D538746007234BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD8AE0E51D538747007234BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DD8AE0BB1D538746007234BE = {
+			isa = PBXGroup;
+			children = (
+				DD8AE0C61D538746007234BE /* DSLNavigationController */,
+				DD8AE0E01D538746007234BE /* DSLNavigationControllerTests */,
+				DD8AE0EB1D538747007234BE /* DSLNavigationControllerUITests */,
+				DD8AE0C51D538746007234BE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DD8AE0C51D538746007234BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD8AE0C41D538746007234BE /* DSLNavigationController.app */,
+				DD8AE0DD1D538746007234BE /* DSLNavigationControllerTests.xctest */,
+				DD8AE0E81D538747007234BE /* DSLNavigationControllerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD8AE0C61D538746007234BE /* DSLNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				DD8AE0CA1D538746007234BE /* AppDelegate.h */,
+				DD8AE0CB1D538746007234BE /* AppDelegate.m */,
+				DD8AE0CD1D538746007234BE /* ViewController.h */,
+				DD8AE0CE1D538746007234BE /* ViewController.m */,
+				DD8AE0D01D538746007234BE /* Main.storyboard */,
+				DD8AE0D31D538746007234BE /* Assets.xcassets */,
+				DD8AE0D51D538746007234BE /* LaunchScreen.storyboard */,
+				DD8AE0D81D538746007234BE /* Info.plist */,
+				DD8AE0C71D538746007234BE /* Supporting Files */,
+			);
+			path = DSLNavigationController;
+			sourceTree = "<group>";
+		};
+		DD8AE0C71D538746007234BE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DD8AE0C81D538746007234BE /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DD8AE0E01D538746007234BE /* DSLNavigationControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD8AE0E11D538746007234BE /* DSLNavigationControllerTests.m */,
+				DD8AE0E31D538746007234BE /* Info.plist */,
+			);
+			path = DSLNavigationControllerTests;
+			sourceTree = "<group>";
+		};
+		DD8AE0EB1D538747007234BE /* DSLNavigationControllerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DD8AE0EC1D538747007234BE /* DSLNavigationControllerUITests.m */,
+				DD8AE0EE1D538747007234BE /* Info.plist */,
+			);
+			path = DSLNavigationControllerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD8AE0C31D538746007234BE /* DSLNavigationController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD8AE0F11D538747007234BE /* Build configuration list for PBXNativeTarget "DSLNavigationController" */;
+			buildPhases = (
+				DD8AE0C01D538746007234BE /* Sources */,
+				DD8AE0C11D538746007234BE /* Frameworks */,
+				DD8AE0C21D538746007234BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DSLNavigationController;
+			productName = DSLNavigationController;
+			productReference = DD8AE0C41D538746007234BE /* DSLNavigationController.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DD8AE0DC1D538746007234BE /* DSLNavigationControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD8AE0F41D538747007234BE /* Build configuration list for PBXNativeTarget "DSLNavigationControllerTests" */;
+			buildPhases = (
+				DD8AE0D91D538746007234BE /* Sources */,
+				DD8AE0DA1D538746007234BE /* Frameworks */,
+				DD8AE0DB1D538746007234BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD8AE0DF1D538746007234BE /* PBXTargetDependency */,
+			);
+			name = DSLNavigationControllerTests;
+			productName = DSLNavigationControllerTests;
+			productReference = DD8AE0DD1D538746007234BE /* DSLNavigationControllerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DD8AE0E71D538747007234BE /* DSLNavigationControllerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD8AE0F71D538747007234BE /* Build configuration list for PBXNativeTarget "DSLNavigationControllerUITests" */;
+			buildPhases = (
+				DD8AE0E41D538747007234BE /* Sources */,
+				DD8AE0E51D538747007234BE /* Frameworks */,
+				DD8AE0E61D538747007234BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD8AE0EA1D538747007234BE /* PBXTargetDependency */,
+			);
+			name = DSLNavigationControllerUITests;
+			productName = DSLNavigationControllerUITests;
+			productReference = DD8AE0E81D538747007234BE /* DSLNavigationControllerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD8AE0BC1D538746007234BE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "邓顺来";
+				TargetAttributes = {
+					DD8AE0C31D538746007234BE = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					DD8AE0DC1D538746007234BE = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = DD8AE0C31D538746007234BE;
+					};
+					DD8AE0E71D538747007234BE = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = DD8AE0C31D538746007234BE;
+					};
+				};
+			};
+			buildConfigurationList = DD8AE0BF1D538746007234BE /* Build configuration list for PBXProject "DSLNavigationController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD8AE0BB1D538746007234BE;
+			productRefGroup = DD8AE0C51D538746007234BE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD8AE0C31D538746007234BE /* DSLNavigationController */,
+				DD8AE0DC1D538746007234BE /* DSLNavigationControllerTests */,
+				DD8AE0E71D538747007234BE /* DSLNavigationControllerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD8AE0C21D538746007234BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD8AE0D71D538746007234BE /* LaunchScreen.storyboard in Resources */,
+				DD8AE0D41D538746007234BE /* Assets.xcassets in Resources */,
+				DD8AE0D21D538746007234BE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD8AE0DB1D538746007234BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD8AE0E61D538747007234BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD8AE0C01D538746007234BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD8AE0CF1D538746007234BE /* ViewController.m in Sources */,
+				DD8AE0CC1D538746007234BE /* AppDelegate.m in Sources */,
+				DD8AE0C91D538746007234BE /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD8AE0D91D538746007234BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD8AE0E21D538746007234BE /* DSLNavigationControllerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD8AE0E41D538747007234BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD8AE0ED1D538747007234BE /* DSLNavigationControllerUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD8AE0DF1D538746007234BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD8AE0C31D538746007234BE /* DSLNavigationController */;
+			targetProxy = DD8AE0DE1D538746007234BE /* PBXContainerItemProxy */;
+		};
+		DD8AE0EA1D538747007234BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD8AE0C31D538746007234BE /* DSLNavigationController */;
+			targetProxy = DD8AE0E91D538747007234BE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DD8AE0D01D538746007234BE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD8AE0D11D538746007234BE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DD8AE0D51D538746007234BE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD8AE0D61D538746007234BE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DD8AE0EF1D538747007234BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DD8AE0F01D538747007234BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DD8AE0F21D538747007234BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DSLNavigationController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dsl.DSLNavigationController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DD8AE0F31D538747007234BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DSLNavigationController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dsl.DSLNavigationController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DD8AE0F51D538747007234BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DSLNavigationControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dsl.DSLNavigationControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DSLNavigationController.app/DSLNavigationController";
+			};
+			name = Debug;
+		};
+		DD8AE0F61D538747007234BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DSLNavigationControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dsl.DSLNavigationControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DSLNavigationController.app/DSLNavigationController";
+			};
+			name = Release;
+		};
+		DD8AE0F81D538747007234BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = DSLNavigationControllerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dsl.DSLNavigationControllerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DSLNavigationController;
+			};
+			name = Debug;
+		};
+		DD8AE0F91D538747007234BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = DSLNavigationControllerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dsl.DSLNavigationControllerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DSLNavigationController;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD8AE0BF1D538746007234BE /* Build configuration list for PBXProject "DSLNavigationController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD8AE0EF1D538747007234BE /* Debug */,
+				DD8AE0F01D538747007234BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD8AE0F11D538747007234BE /* Build configuration list for PBXNativeTarget "DSLNavigationController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD8AE0F21D538747007234BE /* Debug */,
+				DD8AE0F31D538747007234BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DD8AE0F41D538747007234BE /* Build configuration list for PBXNativeTarget "DSLNavigationControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD8AE0F51D538747007234BE /* Debug */,
+				DD8AE0F61D538747007234BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DD8AE0F71D538747007234BE /* Build configuration list for PBXNativeTarget "DSLNavigationControllerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD8AE0F81D538747007234BE /* Debug */,
+				DD8AE0F91D538747007234BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DD8AE0BC1D538746007234BE /* Project object */;
+}
