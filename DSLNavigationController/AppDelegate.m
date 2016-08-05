@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DSLNavigationBar.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+//    //appearance 统一设置
+//    DSLNavigationBar *topBar = [DSLNavigationBar appearance];
+//    topBar.titleColor = [UIColor purpleColor];
+//    topBar.backgroundColor = [UIColor yellowColor];
+//    topBar.backFrame = CGRectMake(0, 20, 52, 44);
+    
     return YES;
 }
 

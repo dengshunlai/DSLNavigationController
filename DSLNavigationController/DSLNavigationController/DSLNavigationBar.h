@@ -14,10 +14,15 @@ IB_DESIGNABLE
 @property (nonatomic, strong) IBInspectable NSString *title;
 @property (nonatomic, assign) IBInspectable CGFloat fontSizt;
 @property (nonatomic, strong) IBInspectable UIColor *titleColor;
-@property (nonatomic, strong) IBInspectable UIImage *normalImageForBackBtn;
-@property (nonatomic, strong) IBInspectable UIImage *highlightImageForBackBtn;
-@property (nonatomic, assign) IBInspectable BOOL isHideBackBtn;
-@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UIButton *backBtn;
+
+@property (assign, nonatomic) IBInspectable CGRect backFrame;
+
+@property (nonatomic, strong) IBInspectable UIImage *normalImage;
+@property (nonatomic, strong) IBInspectable UIImage *highlightImage;
+@property (nonatomic, assign) IBInspectable BOOL hideBack;
+
+@property (nonatomic, strong, readonly) IBInspectable UILabel *titleLabel;
+
+@property (nonatomic, strong, readonly) IBInspectable UIButton *backBtn;
 
 @end

@@ -37,7 +37,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 - (void)initialization
 {
-    self.backgroundColor = [UIColor whiteColor];
     [self createTitleLabel];
     [self createBackBtn];
 }
@@ -58,19 +57,27 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     _titleLabel.textAlignment = NSTextAlignmentCenter;
     _titleLabel.font = [UIFont systemFontOfSize:17];
     _titleLabel.textColor = UIColorFromRGB(0x333333);
-    _titleLabel.text = @"title";
     [self addSubview:_titleLabel];
     _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[_titleLabel]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_titleLabel)]];
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:_titleLabel attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[_titleLabel]|"
+                                                                 options:0
+                                                                 metrics:nil
+                                                                   views:NSDictionaryOfVariableBindings(_titleLabel)]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self
+                                                     attribute:NSLayoutAttributeCenterX
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:_titleLabel
+                                                     attribute:NSLayoutAttributeCenterX
+                                                    multiplier:1
+                                                      constant:0]];
 }
 
 - (void)createBackBtn
 {
     _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _backBtn.frame = CGRectMake(0, 20, 44, 44);
-    [_backBtn setImage:[UIImage imageNamed:@"back4"] forState:UIControlStateNormal];
     [self addSubview:_backBtn];
+    [_backBtn setImage:[UIImage imageNamed:@"DSLBack"] forState:UIControlStateNormal];
     [_backBtn addTarget:self action:@selector(pop:) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -94,22 +101,28 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     _titleLabel.textColor = titleColor;
 }
 
-- (void)setIsHideBackBtn:(BOOL)isHideBackBtn
+- (void)setHideBack:(BOOL)hideBack
 {
-    _isHideBackBtn = isHideBackBtn;
-    _backBtn.hidden = isHideBackBtn;
+    _hideBack = hideBack;
+    _backBtn.hidden = hideBack;
 }
 
-- (void)setNormalImageForBackBtn:(UIImage *)normalImageForBackBtn
+- (void)setNormalImage:(UIImage *)normalImage
 {
-    _normalImageForBackBtn = normalImageForBackBtn;
-    [_backBtn setImage:normalImageForBackBtn forState:UIControlStateNormal];
+    _normalImage = normalImage;
+    [_backBtn setImage:normalImage forState:UIControlStateNormal];
 }
 
-- (void)setHighlightImageForBackBtn:(UIImage *)highlightImageForBackBtn
+- (void)setHighlightImage:(UIImage *)highlightImage
 {
-    _highlightImageForBackBtn = highlightImageForBackBtn;
-    [_backBtn setImage:highlightImageForBackBtn forState:UIControlStateHighlighted];
+    _highlightImage = highlightImage;
+    [_backBtn setImage:highlightImage forState:UIControlStateHighlighted];
+}
+
+- (void)setBackFrame:(CGRect)backFrame
+{
+    _backFrame = backFrame;
+    _backBtn.frame = backFrame;
 }
 
 #pragma mark - Target & Action
