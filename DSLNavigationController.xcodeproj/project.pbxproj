@@ -436,6 +436,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DSLNavigationController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dsl.DSLNavigationController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -447,6 +448,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DSLNavigationController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dsl.DSLNavigationController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -518,6 +520,7 @@
 				DD8AE0F31D538747007234BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DD8AE0F41D538747007234BE /* Build configuration list for PBXNativeTarget "DSLNavigationControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +529,7 @@
 				DD8AE0F61D538747007234BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DD8AE0F71D538747007234BE /* Build configuration list for PBXNativeTarget "DSLNavigationControllerUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +538,7 @@
 				DD8AE0F91D538747007234BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
