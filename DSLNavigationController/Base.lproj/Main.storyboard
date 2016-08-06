@@ -36,9 +36,6 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="首页"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSizt">
-                                        <real key="value" value="17"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="hideBack" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -58,18 +55,21 @@
             </objects>
             <point key="canvasLocation" x="928" y="1078"/>
         </scene>
-        <!--View Controller-->
+        <!--Next View Controller-->
         <scene sceneID="Va4-Tg-Qu9">
             <objects>
-                <viewController id="oSR-Lf-s1R" sceneMemberID="viewController">
+                <viewController id="oSR-Lf-s1R" customClass="NextViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W7A-hW-yxp"/>
                         <viewControllerLayoutGuide type="bottom" id="4ME-zR-xdh"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="mnK-CN-UNA">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="mnK-CN-UNA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picture.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nFD-0R-iep">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ybP-xW-utP" customClass="DSLNavigationBar">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -84,12 +84,46 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="详情"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1t-gt-JS3">
+                                <rect key="frame" x="226" y="242" width="147" height="30"/>
+                                <state key="normal" title="showActivityIndicator"/>
+                                <connections>
+                                    <action selector="show:" destination="oSR-Lf-s1R" eventType="touchUpInside" id="jtY-fR-4Ui"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zY0-UK-NKy">
+                                <rect key="frame" x="229" y="285" width="141" height="30"/>
+                                <state key="normal" title="hideActivityIndicator"/>
+                                <connections>
+                                    <action selector="hide:" destination="oSR-Lf-s1R" eventType="touchUpInside" id="JNk-nb-1ft"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="kiE-tl-GPc">
+                                <rect key="frame" x="187" y="332" width="227" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="PUg-GN-yV9"/>
+                                    <constraint firstAttribute="width" constant="223" id="cGu-11-TiJ"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="changeNavigationBarAlpha:" destination="oSR-Lf-s1R" eventType="valueChanged" id="YVh-f9-nhu"/>
+                                </connections>
+                            </slider>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nFD-0R-iep" secondAttribute="trailing" id="0lf-Jw-Oig"/>
                             <constraint firstItem="ybP-xW-utP" firstAttribute="top" secondItem="mnK-CN-UNA" secondAttribute="top" id="3ey-So-K3Q"/>
+                            <constraint firstItem="zY0-UK-NKy" firstAttribute="centerY" secondItem="mnK-CN-UNA" secondAttribute="centerY" id="Ao8-2d-FBO"/>
                             <constraint firstAttribute="trailing" secondItem="ybP-xW-utP" secondAttribute="trailing" id="BFX-Wo-4OT"/>
+                            <constraint firstItem="4ME-zR-xdh" firstAttribute="top" secondItem="nFD-0R-iep" secondAttribute="bottom" id="HtA-2o-KV1"/>
+                            <constraint firstItem="nFD-0R-iep" firstAttribute="top" secondItem="mnK-CN-UNA" secondAttribute="top" id="KQr-SL-anI"/>
+                            <constraint firstItem="kiE-tl-GPc" firstAttribute="top" secondItem="zY0-UK-NKy" secondAttribute="bottom" constant="17" id="Siz-sT-Cfj"/>
+                            <constraint firstItem="zY0-UK-NKy" firstAttribute="centerX" secondItem="mnK-CN-UNA" secondAttribute="centerX" id="YjF-fT-PZn"/>
+                            <constraint firstItem="zY0-UK-NKy" firstAttribute="top" secondItem="x1t-gt-JS3" secondAttribute="bottom" constant="13" id="diA-n6-g2O"/>
                             <constraint firstItem="ybP-xW-utP" firstAttribute="leading" secondItem="mnK-CN-UNA" secondAttribute="leading" id="icd-P7-qka"/>
+                            <constraint firstItem="x1t-gt-JS3" firstAttribute="centerX" secondItem="zY0-UK-NKy" secondAttribute="centerX" id="lFf-Bo-qbi"/>
+                            <constraint firstItem="nFD-0R-iep" firstAttribute="leading" secondItem="mnK-CN-UNA" secondAttribute="leading" id="lMm-eq-koz"/>
+                            <constraint firstItem="kiE-tl-GPc" firstAttribute="centerX" secondItem="nFD-0R-iep" secondAttribute="centerX" id="xrT-lN-Gs9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dEz-ud-ufq"/>
@@ -109,6 +143,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="type">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="BKV-ZC-gto"/>
                     </connections>
@@ -120,5 +159,6 @@
     </scenes>
     <resources>
         <image name="DSLBack.png" width="112" height="98"/>
+        <image name="picture.jpg" width="700" height="1050"/>
     </resources>
 </document>

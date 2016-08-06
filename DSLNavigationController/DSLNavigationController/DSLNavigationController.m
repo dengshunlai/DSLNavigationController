@@ -32,8 +32,8 @@ static CGFloat const kHeightScale = 0.9;
 {
     self = [super initWithRootViewController:rootViewController];
     if (self) {
-        [self initialization];
         _type = type;
+        [self initialization];
     }
     return self;
 }
@@ -50,11 +50,9 @@ static CGFloat const kHeightScale = 0.9;
 - (void)initialization
 {
     _animator = [[InteractiveAnimator alloc] initWithNavc:self];
-    self.delegate = _animator;
-    _type = 0;
-    
-    self.interactivePopGestureRecognizer.enabled = NO;
     self.navigationBarHidden = YES;
+    self.delegate = _animator;
+    self.interactivePopGestureRecognizer.enabled = NO;
 }
 
 - (void)viewDidLoad {
