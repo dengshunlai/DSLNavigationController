@@ -21,11 +21,20 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 @interface DSLNavigationBar ()
 
 @property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
+
 @property (strong, nonatomic) NSLayoutConstraint *titleLabelCenterXConstraint;
+@property (strong, nonatomic) NSLayoutConstraint *titleSegmentCenterXConstraint;
+@property (strong, nonatomic) NSLayoutConstraint *titleButtonCenterXConstraint;
+
+@property (strong, nonatomic) NSArray *activetyANDtitleLabelConstraints;
+@property (strong, nonatomic) NSArray *activetyANDtitleSegmentConstraints;
+@property (strong, nonatomic) NSArray *activetyANDtitleButtonConstraints;
 
 @end
 
 @implementation DSLNavigationBar
+
+@synthesize titleLabel = _titleLabel, titleSegment = _titleSegment;
 
 #pragma mark - Life cycle
 
@@ -51,7 +60,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 {
     _activityIndicatorStyle = UIActivityIndicatorViewStyleGray;
     _bgAlpha = 1;
-    [self createTitleLabel];
+    self.titleStyle = DSLNavigationBarTitleStyleSegment;
     [self createBackBtn];
 }
 
@@ -64,28 +73,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 }
 
 #pragma mark - Create UI
-
-- (void)createTitleLabel
-{
-    _titleLabel = [[UILabel alloc] init];
-    _titleLabel.textAlignment = NSTextAlignmentCenter;
-    _titleLabel.font = [UIFont systemFontOfSize:20];
-    _titleLabel.textColor = UIColorFromRGB(0x333333);
-    [self addSubview:_titleLabel];
-    _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[_titleLabel]|"
-                                                                 options:0
-                                                                 metrics:nil
-                                                                   views:NSDictionaryOfVariableBindings(_titleLabel)]];
-    self.titleLabelCenterXConstraint = [NSLayoutConstraint constraintWithItem:self
-                                                                    attribute:NSLayoutAttributeCenterX
-                                                                    relatedBy:NSLayoutRelationEqual
-                                                                       toItem:_titleLabel
-                                                                    attribute:NSLayoutAttributeCenterX
-                                                                   multiplier:1
-                                                                     constant:0];
-    [self addConstraint:self.titleLabelCenterXConstraint];
-}
 
 - (void)createBackBtn
 {
@@ -156,30 +143,97 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 - (void)setShowActivityIndicator:(BOOL)showActivityIndicator
 {
     if (showActivityIndicator) {
-        [self removeConstraint:self.titleLabelCenterXConstraint];
-        self.titleLabelCenterXConstraint = [NSLayoutConstraint constraintWithItem:self
-                                                                        attribute:NSLayoutAttributeCenterX
-                                                                        relatedBy:NSLayoutRelationEqual
-                                                                           toItem:_titleLabel
-                                                                        attribute:NSLayoutAttributeCenterX
-                                                                       multiplier:1
-                                                                         constant:-10];
-        [self addConstraint:self.titleLabelCenterXConstraint];
-        [UIView animateWithDuration:0.2 animations:^{
-            [self layoutIfNeeded];
-        }];
+        switch (_titleStyle) {
+            case DSLNavigationBarTitleStyleLable: {
+                [self removeConstraint:self.titleLabelCenterXConstraint];
+                self.titleLabelCenterXConstraint = [NSLayoutConstraint constraintWithItem:self
+                                                                                attribute:NSLayoutAttributeCenterX
+                                                                                relatedBy:NSLayoutRelationEqual
+                                                                                   toItem:_titleLabel
+                                                                                attribute:NSLayoutAttributeCenterX
+                                                                               multiplier:1
+                                                                                 constant:-10];
+                [self addConstraint:self.titleLabelCenterXConstraint];
+                [UIView animateWithDuration:0.2 animations:^{
+                    [self layoutIfNeeded];
+                }];
+                if (!self.activetyANDtitleLabelConstraints.count) {
+                    self.activetyANDtitleLabelConstraints =
+                    [NSLayoutConstraint constraintsWithVisualFormat:@"H:[_activityIndicator]-5-[_titleLabel]"
+                                                            options:0
+                                                            metrics:nil
+                                                              views:@{@"_activityIndicator":self.activityIndicator,
+                                                                      @"_titleLabel":self.titleLabel}];
+                    [self addConstraints:self.activetyANDtitleLabelConstraints];
+                }
+            }
+                break;
+            case DSLNavigationBarTitleStyleSegment: {
+                [self removeConstraint:self.titleSegmentCenterXConstraint];
+                self.titleSegmentCenterXConstraint = [NSLayoutConstraint constraintWithItem:self
+                                                                                attribute:NSLayoutAttributeCenterX
+                                                                                relatedBy:NSLayoutRelationEqual
+                                                                                   toItem:_titleSegment
+                                                                                attribute:NSLayoutAttributeCenterX
+                                                                               multiplier:1
+                                                                                 constant:-10];
+                [self addConstraint:self.titleSegmentCenterXConstraint];
+                [UIView animateWithDuration:0.2 animations:^{
+                    [self layoutIfNeeded];
+                }];
+                if (!self.activetyANDtitleSegmentConstraints.count) {
+                    self.activetyANDtitleSegmentConstraints =
+                    [NSLayoutConstraint constraintsWithVisualFormat:@"H:[_activityIndicator]-5-[_titleSegment]"
+                                                            options:0
+                                                            metrics:nil
+                                                              views:@{@"_activityIndicator":self.activityIndicator,
+                                                                      @"_titleSegment":self.titleSegment}];
+                    [self addConstraints:self.activetyANDtitleSegmentConstraints];
+                }
+            }
+                break;
+            case DSLNavigationBarTitleStyleButton: {
+                ;
+            }
+                break;
+            default:
+                break;
+        }
         [self.activityIndicator startAnimating];
         self.activityIndicator.hidden = NO;
     } else {
-        [self removeConstraint:self.titleLabelCenterXConstraint];
-        self.titleLabelCenterXConstraint = [NSLayoutConstraint constraintWithItem:self
-                                                                        attribute:NSLayoutAttributeCenterX
-                                                                        relatedBy:NSLayoutRelationEqual
-                                                                           toItem:_titleLabel
-                                                                        attribute:NSLayoutAttributeCenterX
-                                                                       multiplier:1
-                                                                         constant:0];
-        [self addConstraint:self.titleLabelCenterXConstraint];
+        switch (_titleStyle) {
+            case DSLNavigationBarTitleStyleLable: {
+                [self removeConstraint:self.titleLabelCenterXConstraint];
+                self.titleLabelCenterXConstraint = [NSLayoutConstraint constraintWithItem:self
+                                                                                attribute:NSLayoutAttributeCenterX
+                                                                                relatedBy:NSLayoutRelationEqual
+                                                                                   toItem:_titleLabel
+                                                                                attribute:NSLayoutAttributeCenterX
+                                                                               multiplier:1
+                                                                                 constant:0];
+                [self addConstraint:self.titleLabelCenterXConstraint];
+            }
+                break;
+            case DSLNavigationBarTitleStyleSegment: {
+                [self removeConstraint:self.titleSegmentCenterXConstraint];
+                self.titleSegmentCenterXConstraint = [NSLayoutConstraint constraintWithItem:self
+                                                                                  attribute:NSLayoutAttributeCenterX
+                                                                                  relatedBy:NSLayoutRelationEqual
+                                                                                     toItem:_titleSegment
+                                                                                  attribute:NSLayoutAttributeCenterX
+                                                                                 multiplier:1
+                                                                                   constant:0];
+                [self addConstraint:self.titleSegmentCenterXConstraint];
+            }
+                break;
+            case DSLNavigationBarTitleStyleButton: {
+                ;
+            }
+                break;
+            default:
+                break;
+        }
         [UIView animateWithDuration:0.2 animations:^{
             [self layoutIfNeeded];
         }];
@@ -188,7 +242,86 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
     }
 }
 
+- (void)setTitleStyle:(DSLNavigationBarTitleStyle)titleStyle
+{
+    _titleStyle = titleStyle;
+    switch (titleStyle) {
+        case DSLNavigationBarTitleStyleLable: {
+            self.titleLabel.hidden = NO;
+            _titleSegment.hidden = YES;
+            _titleButton.hidden = YES;
+        }
+            break;
+        case DSLNavigationBarTitleStyleSegment: {
+            self.titleSegment.hidden = NO;
+            _titleLabel.hidden = YES;
+            _titleButton.hidden = YES;
+        }
+            break;
+        default:
+            break;
+    }
+}
+
 #pragma mark - Lazy Load
+
+- (UILabel *)titleLabel
+{
+    if (!_titleLabel) {
+        _titleLabel = [[UILabel alloc] init];
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.font = [UIFont systemFontOfSize:20];
+        _titleLabel.textColor = UIColorFromRGB(0x333333);
+        [self addSubview:_titleLabel];
+        _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[_titleLabel]|"
+                                                                     options:0
+                                                                     metrics:nil
+                                                                       views:NSDictionaryOfVariableBindings(_titleLabel)]];
+        self.titleLabelCenterXConstraint = [NSLayoutConstraint constraintWithItem:self
+                                                                        attribute:NSLayoutAttributeCenterX
+                                                                        relatedBy:NSLayoutRelationEqual
+                                                                           toItem:_titleLabel
+                                                                        attribute:NSLayoutAttributeCenterX
+                                                                       multiplier:1
+                                                                         constant:0];
+        [self addConstraint:self.titleLabelCenterXConstraint];
+    }
+    return _titleLabel;
+}
+
+- (UISegmentedControl *)titleSegment
+{
+    if (!_titleSegment) {
+        _titleSegment = [[UISegmentedControl alloc] initWithItems:@[@"one",@"two"]];
+        _titleSegment.selectedSegmentIndex = 0;
+        [self addSubview:_titleSegment];
+        _titleSegment.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self
+                                                         attribute:NSLayoutAttributeCenterY
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:_titleSegment
+                                                         attribute:NSLayoutAttributeCenterY
+                                                        multiplier:1
+                                                          constant:-10]];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:_titleSegment
+                                                         attribute:NSLayoutAttributeWidth
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:nil
+                                                         attribute:0
+                                                        multiplier:1
+                                                          constant:120]];
+        self.titleSegmentCenterXConstraint = [NSLayoutConstraint constraintWithItem:self
+                                                                          attribute:NSLayoutAttributeCenterX
+                                                                          relatedBy:NSLayoutRelationEqual
+                                                                             toItem:_titleSegment
+                                                                          attribute:NSLayoutAttributeCenterX
+                                                                         multiplier:1
+                                                                           constant:0];
+        [self addConstraint:self.titleSegmentCenterXConstraint];
+    }
+    return _titleSegment;
+}
 
 - (UIActivityIndicatorView *)activityIndicator
 {
@@ -196,10 +329,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
         _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:_activityIndicatorStyle];
         [self addSubview:_activityIndicator];
         _activityIndicator.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_activityIndicator]-5-[_titleLabel]"
-                                                                     options:0
-                                                                     metrics:nil
-                                                                       views:NSDictionaryOfVariableBindings(_activityIndicator,_titleLabel)]];
         [self addConstraint:[NSLayoutConstraint constraintWithItem:self
                                                          attribute:NSLayoutAttributeCenterY
                                                          relatedBy:NSLayoutRelationEqual

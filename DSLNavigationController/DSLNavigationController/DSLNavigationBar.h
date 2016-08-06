@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, DSLNavigationBarTitleStyle) {
+    DSLNavigationBarTitleStyleLable = 0,
+    DSLNavigationBarTitleStyleSegment,
+    DSLNavigationBarTitleStyleButton
+};
+
 IB_DESIGNABLE
 @interface DSLNavigationBar : UIView
 
@@ -47,14 +53,18 @@ IB_DESIGNABLE
 @property (nonatomic, assign) IBInspectable BOOL hideBack;
 
 /**
+ *  返回按钮
+ */
+@property (nonatomic, strong, readonly) UIButton *backBtn;
+
+/**
  *  title Lable
  */
 @property (nonatomic, strong, readonly) UILabel *titleLabel;
 
-/**
- *  返回按钮
- */
-@property (nonatomic, strong, readonly) UIButton *backBtn;
+@property (nonatomic, strong, readonly) UISegmentedControl *titleSegment;
+
+@property (nonatomic, strong, readonly) UIButton *titleButton;
 
 /**
  *  是否展示活动指示器
@@ -75,5 +85,7 @@ IB_DESIGNABLE
  *  背景透明度
  */
 @property (assign, nonatomic) CGFloat bgAlpha;
+
+@property (assign, nonatomic) IBInspectable DSLNavigationBarTitleStyle titleStyle;
 
 @end
