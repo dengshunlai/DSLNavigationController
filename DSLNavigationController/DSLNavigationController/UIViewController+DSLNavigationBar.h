@@ -11,6 +11,9 @@
 
 @interface UIViewController (DSLNavigationBar)
 
+/**
+ *  获取该视图控制器中的DSLNavigationBar
+ */
 @property (weak, nonatomic) DSLNavigationBar *dsl_navigationBar;
 
 @end
