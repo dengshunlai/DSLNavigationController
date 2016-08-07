@@ -32,8 +32,8 @@ static CGFloat const kHeightScale = 0.9;
 {
     self = [super initWithRootViewController:rootViewController];
     if (self) {
-        _type = type;
         [self initialization];
+        self.type = type;
     }
     return self;
 }
@@ -43,16 +43,14 @@ static CGFloat const kHeightScale = 0.9;
     self = [super initWithCoder:coder];
     if (self) {
         [self initialization];
+        self.type = 0;
     }
     return self;
 }
 
 - (void)initialization
 {
-    _animator = [[InteractiveAnimator alloc] initWithNavc:self];
-    self.navigationBarHidden = YES;
-    self.delegate = _animator;
-    self.interactivePopGestureRecognizer.enabled = NO;
+    ;
 }
 
 - (void)viewDidLoad {
@@ -63,6 +61,27 @@ static CGFloat const kHeightScale = 0.9;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setType:(NSInteger)type
+{
+    _type = type;
+    if (_type == 99) {
+        if (_animator) {
+            _animator = nil;
+            self.navigationBarHidden = NO;
+            self.delegate = nil;
+            self.interactivePopGestureRecognizer.enabled = YES;
+        }
+        [self.view sendSubviewToBack:self.navigationBar];
+    } else {
+        if (!_animator) {
+            _animator = [[InteractiveAnimator alloc] initWithNavc:self];
+            self.navigationBarHidden = YES;
+            self.delegate = _animator;
+            self.interactivePopGestureRecognizer.enabled = NO;
+        }
+    }
 }
 
 @end
