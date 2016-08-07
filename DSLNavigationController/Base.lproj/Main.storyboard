@@ -108,10 +108,25 @@
                                     <action selector="changeNavigationBarAlpha:" destination="oSR-Lf-s1R" eventType="valueChanged" id="YVh-f9-nhu"/>
                                 </connections>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JrM-IG-oys">
+                                <rect key="frame" x="255" y="385" width="91" height="30"/>
+                                <state key="normal" title="titileSegment"/>
+                                <connections>
+                                    <segue destination="rQw-aK-uE2" kind="push" id="Nd6-rP-F2u"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhm-PG-PfV">
+                                <rect key="frame" x="264" y="423" width="72" height="30"/>
+                                <state key="normal" title="titleButton"/>
+                                <connections>
+                                    <segue destination="AiV-Za-Kbe" kind="push" id="D68-cD-OuI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="nFD-0R-iep" secondAttribute="trailing" id="0lf-Jw-Oig"/>
+                            <constraint firstItem="JrM-IG-oys" firstAttribute="centerX" secondItem="nFD-0R-iep" secondAttribute="centerX" id="17C-gi-pwV"/>
                             <constraint firstItem="ybP-xW-utP" firstAttribute="top" secondItem="mnK-CN-UNA" secondAttribute="top" id="3ey-So-K3Q"/>
                             <constraint firstItem="zY0-UK-NKy" firstAttribute="centerY" secondItem="mnK-CN-UNA" secondAttribute="centerY" id="Ao8-2d-FBO"/>
                             <constraint firstAttribute="trailing" secondItem="ybP-xW-utP" secondAttribute="trailing" id="BFX-Wo-4OT"/>
@@ -119,10 +134,13 @@
                             <constraint firstItem="nFD-0R-iep" firstAttribute="top" secondItem="mnK-CN-UNA" secondAttribute="top" id="KQr-SL-anI"/>
                             <constraint firstItem="kiE-tl-GPc" firstAttribute="top" secondItem="zY0-UK-NKy" secondAttribute="bottom" constant="17" id="Siz-sT-Cfj"/>
                             <constraint firstItem="zY0-UK-NKy" firstAttribute="centerX" secondItem="mnK-CN-UNA" secondAttribute="centerX" id="YjF-fT-PZn"/>
+                            <constraint firstItem="yhm-PG-PfV" firstAttribute="top" secondItem="JrM-IG-oys" secondAttribute="bottom" constant="8" id="c0h-VB-kXd"/>
                             <constraint firstItem="zY0-UK-NKy" firstAttribute="top" secondItem="x1t-gt-JS3" secondAttribute="bottom" constant="13" id="diA-n6-g2O"/>
                             <constraint firstItem="ybP-xW-utP" firstAttribute="leading" secondItem="mnK-CN-UNA" secondAttribute="leading" id="icd-P7-qka"/>
                             <constraint firstItem="x1t-gt-JS3" firstAttribute="centerX" secondItem="zY0-UK-NKy" secondAttribute="centerX" id="lFf-Bo-qbi"/>
                             <constraint firstItem="nFD-0R-iep" firstAttribute="leading" secondItem="mnK-CN-UNA" secondAttribute="leading" id="lMm-eq-koz"/>
+                            <constraint firstItem="JrM-IG-oys" firstAttribute="top" secondItem="kiE-tl-GPc" secondAttribute="bottom" constant="23" id="paC-71-RkW"/>
+                            <constraint firstItem="yhm-PG-PfV" firstAttribute="centerX" secondItem="nFD-0R-iep" secondAttribute="centerX" id="tnX-1s-hch"/>
                             <constraint firstItem="kiE-tl-GPc" firstAttribute="centerX" secondItem="nFD-0R-iep" secondAttribute="centerX" id="xrT-lN-Gs9"/>
                         </constraints>
                     </view>
@@ -131,6 +149,97 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VCM-Qr-fwz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1625" y="1078"/>
+        </scene>
+        <!--Sg View Controller-->
+        <scene sceneID="ddH-eH-HCU">
+            <objects>
+                <viewController id="rQw-aK-uE2" customClass="SgViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I8V-4w-kzZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Imb-GZ-dtf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rPM-VC-zk0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8h7-Fi-62H" customClass="DSLNavigationBar">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="jqq-kw-f7A"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="IBTitleStyle">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hideBack" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="DSLBack.png"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" red="1" green="0.4039215686" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="segmentWidth">
+                                        <real key="value" value="120"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="segmentTitle0" value="男装"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="segmentTitle1" value="女装"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8h7-Fi-62H" firstAttribute="leading" secondItem="rPM-VC-zk0" secondAttribute="leading" id="AqW-Ps-WmP"/>
+                            <constraint firstItem="8h7-Fi-62H" firstAttribute="top" secondItem="rPM-VC-zk0" secondAttribute="top" id="Lhz-y9-bAi"/>
+                            <constraint firstAttribute="trailing" secondItem="8h7-Fi-62H" secondAttribute="trailing" id="fdW-3s-ghY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="aDy-7u-qBm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jaQ-Eu-rp0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2296" y="1078"/>
+        </scene>
+        <!--Btn View Controller-->
+        <scene sceneID="pyH-A8-E7d">
+            <objects>
+                <viewController id="AiV-Za-Kbe" customClass="BtnViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vX2-tI-xVi"/>
+                        <viewControllerLayoutGuide type="bottom" id="9ia-LW-MVF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="scC-vK-nKg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TR0-mn-jUS" customClass="DSLNavigationBar">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="XyN-ln-TsH"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="IBTitleStyle">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="normalImage" value="DSLBack.png"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" red="1" green="0.4039215686" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="点击"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TR0-mn-jUS" firstAttribute="top" secondItem="scC-vK-nKg" secondAttribute="top" id="1NJ-Mq-BJV"/>
+                            <constraint firstItem="TR0-mn-jUS" firstAttribute="leading" secondItem="scC-vK-nKg" secondAttribute="leading" id="P5K-cW-lE5"/>
+                            <constraint firstAttribute="trailing" secondItem="TR0-mn-jUS" secondAttribute="trailing" id="m7l-Q3-fm5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="SNT-Mt-SFz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DyX-rx-y7q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1625" y="1787"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hkS-ea-Vi4">

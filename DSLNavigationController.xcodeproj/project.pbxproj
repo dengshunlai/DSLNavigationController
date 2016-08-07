@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD0C4B271D56F241001A9B48 /* SgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0C4B261D56F241001A9B48 /* SgViewController.m */; };
+		DD0C4B2A1D56F249001A9B48 /* BtnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0C4B291D56F249001A9B48 /* BtnViewController.m */; };
 		DD5DCA6A1D54D42700F005A3 /* DSLBack.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5DCA691D54D42700F005A3 /* DSLBack.png */; };
 		DD8AE0C91D538746007234BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8AE0C81D538746007234BE /* main.m */; };
 		DD8AE0CC1D538746007234BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8AE0CB1D538746007234BE /* AppDelegate.m */; };
@@ -41,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD0C4B251D56F241001A9B48 /* SgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SgViewController.h; sourceTree = "<group>"; };
+		DD0C4B261D56F241001A9B48 /* SgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SgViewController.m; sourceTree = "<group>"; };
+		DD0C4B281D56F249001A9B48 /* BtnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BtnViewController.h; sourceTree = "<group>"; };
+		DD0C4B291D56F249001A9B48 /* BtnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BtnViewController.m; sourceTree = "<group>"; };
 		DD5DCA691D54D42700F005A3 /* DSLBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DSLBack.png; sourceTree = "<group>"; };
 		DD8AE0C41D538746007234BE /* DSLNavigationController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSLNavigationController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8AE0C81D538746007234BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -124,6 +130,10 @@
 				DD8AE0CE1D538746007234BE /* ViewController.m */,
 				DDF9536C1D559FD90032E642 /* NextViewController.h */,
 				DDF9536D1D559FD90032E642 /* NextViewController.m */,
+				DD0C4B251D56F241001A9B48 /* SgViewController.h */,
+				DD0C4B261D56F241001A9B48 /* SgViewController.m */,
+				DD0C4B281D56F249001A9B48 /* BtnViewController.h */,
+				DD0C4B291D56F249001A9B48 /* BtnViewController.m */,
 				DD8AE0D01D538746007234BE /* Main.storyboard */,
 				DD946FF71D5606BD00D70B46 /* picture.jpg */,
 				DD8AE0D31D538746007234BE /* Assets.xcassets */,
@@ -312,7 +322,9 @@
 				DD8AE0CC1D538746007234BE /* AppDelegate.m in Sources */,
 				DD8AE0C91D538746007234BE /* main.m in Sources */,
 				DD8AE0FD1D538768007234BE /* DSLNavigationController.m in Sources */,
+				DD0C4B271D56F241001A9B48 /* SgViewController.m in Sources */,
 				DD946FF61D55CF4100D70B46 /* UIViewController+DSLNavigationBar.m in Sources */,
+				DD0C4B2A1D56F249001A9B48 /* BtnViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

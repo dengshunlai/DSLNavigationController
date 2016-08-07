@@ -1,25 +1,24 @@
 //
-//  ViewController.m
+//  SgViewController.m
 //  DSLNavigationController
 //
-//  Created by 邓顺来 on 16/8/4.
+//  Created by 邓顺来 on 16/8/7.
 //  Copyright © 2016年 邓顺来. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SgViewController.h"
 #import "UIViewController+DSLNavigationBar.h"
 
-@interface ViewController ()
+@interface SgViewController ()
 
 @end
 
-@implementation ViewController
+@implementation SgViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
-    
+    // Do any additional setup after loading the view.
+    UISegmentedControl *sg = self.dsl_navigationBar.titleSegment;
 }
 
 - (void)didReceiveMemoryWarning {

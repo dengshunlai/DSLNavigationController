@@ -30,11 +30,13 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 @property (strong, nonatomic) NSArray *activetyANDtitleSegmentConstraints;
 @property (strong, nonatomic) NSArray *activetyANDtitleButtonConstraints;
 
+@property (strong, nonatomic) NSLayoutConstraint *titleSegmentWidthConstraint;
+
 @end
 
 @implementation DSLNavigationBar
 
-@synthesize titleLabel = _titleLabel, titleSegment = _titleSegment;
+@synthesize titleLabel = _titleLabel, titleSegment = _titleSegment ,titleButton = _titleButton;
 
 #pragma mark - Life cycle
 
@@ -60,8 +62,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 {
     _activityIndicatorStyle = UIActivityIndicatorViewStyleGray;
     _bgAlpha = 1;
-    self.titleStyle = DSLNavigationBarTitleStyleSegment;
     [self createBackBtn];
+    self.titleStyle = DSLNavigationBarTitleStyleLable;
 }
 
 - (void)drawRect:(CGRect)rect
@@ -89,18 +91,22 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 {
     _title = title;
     _titleLabel.text = title;
+    [_titleButton setTitle:title forState:UIControlStateNormal];
 }
 
 - (void)setFontSizt:(CGFloat)fontSizt
 {
     _fontSizt = fontSizt;
     _titleLabel.font = [UIFont systemFontOfSize:fontSizt];
+    _titleButton.titleLabel.font = [UIFont systemFontOfSize:fontSizt];
 }
 
 - (void)setTitleColor:(UIColor *)titleColor
 {
     _titleColor = titleColor;
     _titleLabel.textColor = titleColor;
+    [_titleButton setTitleColor:titleColor forState:UIControlStateNormal];
+    _titleSegment.tintColor = titleColor;
 }
 
 - (void)setHideBack:(BOOL)hideBack
@@ -193,7 +199,27 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
             }
                 break;
             case DSLNavigationBarTitleStyleButton: {
-                ;
+                [self removeConstraint:self.titleButtonCenterXConstraint];
+                self.titleButtonCenterXConstraint = [NSLayoutConstraint constraintWithItem:self
+                                                                                 attribute:NSLayoutAttributeCenterX
+                                                                                 relatedBy:NSLayoutRelationEqual
+                                                                                    toItem:_titleButton
+                                                                                 attribute:NSLayoutAttributeCenterX
+                                                                                multiplier:1
+                                                                                  constant:-10];
+                [self addConstraint:self.titleButtonCenterXConstraint];
+                [UIView animateWithDuration:0.2 animations:^{
+                    [self layoutIfNeeded];
+                }];
+                if (!self.activetyANDtitleButtonConstraints.count) {
+                    self.activetyANDtitleButtonConstraints =
+                    [NSLayoutConstraint constraintsWithVisualFormat:@"H:[_activityIndicator]-5-[_titleSegment]"
+                                                            options:0
+                                                            metrics:nil
+                                                              views:@{@"_activityIndicator":self.activityIndicator,
+                                                                      @"_titleSegment":self.titleButton}];
+                    [self addConstraints:self.activetyANDtitleButtonConstraints];
+                }
             }
                 break;
             default:
@@ -228,7 +254,15 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
             }
                 break;
             case DSLNavigationBarTitleStyleButton: {
-                ;
+                [self removeConstraint:self.titleButtonCenterXConstraint];
+                self.titleButtonCenterXConstraint = [NSLayoutConstraint constraintWithItem:self
+                                                                                 attribute:NSLayoutAttributeCenterX
+                                                                                 relatedBy:NSLayoutRelationEqual
+                                                                                    toItem:_titleButton
+                                                                                 attribute:NSLayoutAttributeCenterX
+                                                                                multiplier:1
+                                                                                  constant:0];
+                [self addConstraint:self.titleButtonCenterXConstraint];
             }
                 break;
             default:
@@ -258,8 +292,52 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
             _titleButton.hidden = YES;
         }
             break;
+        case DSLNavigationBarTitleStyleButton: {
+            self.titleButton.hidden = NO;
+            _titleLabel.hidden = YES;
+            _titleSegment.hidden = YES;
+        }
+            break;
         default:
             break;
+    }
+}
+
+- (void)setIBTitleStyle:(NSInteger)IBTitleStyle
+{
+    _IBTitleStyle = IBTitleStyle;
+    self.titleStyle = IBTitleStyle;
+}
+
+- (void)setSegmentWidth:(CGFloat)segmentWidth
+{
+    _segmentWidth = segmentWidth;
+    if (_titleSegment) {
+        [self removeConstraint:_titleSegmentWidthConstraint];
+        self.titleSegmentWidthConstraint = [NSLayoutConstraint constraintWithItem:_titleSegment
+                                                                        attribute:NSLayoutAttributeWidth
+                                                                        relatedBy:NSLayoutRelationEqual
+                                                                           toItem:nil
+                                                                        attribute:0
+                                                                       multiplier:1
+                                                                         constant:segmentWidth];
+        [self addConstraint:_titleSegmentWidthConstraint];
+    }
+}
+
+- (void)setSegmentTitle0:(NSString *)segmentTitle0
+{
+    _segmentTitle0 = segmentTitle0;
+    if (_titleSegment) {
+        [_titleSegment setTitle:segmentTitle0 forSegmentAtIndex:0];
+    }
+}
+
+- (void)setSegmentTitle1:(NSString *)segmentTitle1
+{
+    _segmentTitle1 = segmentTitle1;
+    if (_titleSegment) {
+        [_titleSegment setTitle:segmentTitle1 forSegmentAtIndex:1];
     }
 }
 
@@ -293,7 +371,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 - (UISegmentedControl *)titleSegment
 {
     if (!_titleSegment) {
-        _titleSegment = [[UISegmentedControl alloc] initWithItems:@[@"one",@"two"]];
+        _titleSegment = [[UISegmentedControl alloc] initWithItems:@[@" ",@" "]];
         _titleSegment.selectedSegmentIndex = 0;
         [self addSubview:_titleSegment];
         _titleSegment.translatesAutoresizingMaskIntoConstraints = NO;
@@ -304,13 +382,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
                                                          attribute:NSLayoutAttributeCenterY
                                                         multiplier:1
                                                           constant:-10]];
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:_titleSegment
-                                                         attribute:NSLayoutAttributeWidth
-                                                         relatedBy:NSLayoutRelationEqual
-                                                            toItem:nil
-                                                         attribute:0
-                                                        multiplier:1
-                                                          constant:120]];
         self.titleSegmentCenterXConstraint = [NSLayoutConstraint constraintWithItem:self
                                                                           attribute:NSLayoutAttributeCenterX
                                                                           relatedBy:NSLayoutRelationEqual
@@ -319,8 +390,35 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
                                                                          multiplier:1
                                                                            constant:0];
         [self addConstraint:self.titleSegmentCenterXConstraint];
+        [self setSegmentWidth:120];
     }
     return _titleSegment;
+}
+
+- (UIButton *)titleButton
+{
+    if (!_titleButton) {
+        _titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_titleButton setTitleColor:UIColorFromRGB(0x333333) forState:UIControlStateNormal];
+        [self addSubview:_titleButton];
+        _titleButton.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self
+                                                         attribute:NSLayoutAttributeCenterY
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:_titleButton
+                                                         attribute:NSLayoutAttributeCenterY
+                                                        multiplier:1
+                                                          constant:-10]];
+        self.titleButtonCenterXConstraint = [NSLayoutConstraint constraintWithItem:self
+                                                                         attribute:NSLayoutAttributeCenterX
+                                                                         relatedBy:NSLayoutRelationEqual
+                                                                            toItem:_titleButton
+                                                                         attribute:NSLayoutAttributeCenterX
+                                                                        multiplier:1
+                                                                          constant:0];
+        [self addConstraint:self.titleButtonCenterXConstraint];
+    }
+    return _titleButton;
 }
 
 - (UIActivityIndicatorView *)activityIndicator

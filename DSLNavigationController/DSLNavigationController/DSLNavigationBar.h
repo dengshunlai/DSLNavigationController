@@ -58,16 +58,12 @@ IB_DESIGNABLE
 @property (nonatomic, strong, readonly) UIButton *backBtn;
 
 /**
- *  title Lable
+ *  返回按钮点击回调，默认为pop
  */
-@property (nonatomic, strong, readonly) UILabel *titleLabel;
-
-@property (nonatomic, strong, readonly) UISegmentedControl *titleSegment;
-
-@property (nonatomic, strong, readonly) UIButton *titleButton;
+@property (copy, nonatomic) void (^backBtnClickBlock)(void);
 
 /**
- *  是否展示活动指示器
+ *  是否展示活动指示器，默认NO
  */
 @property (assign, nonatomic) BOOL showActivityIndicator;
 
@@ -77,15 +73,48 @@ IB_DESIGNABLE
 @property (assign, nonatomic) UIActivityIndicatorViewStyle activityIndicatorStyle;
 
 /**
- *  返回按钮点击回调，默认为pop
- */
-@property (copy, nonatomic) void (^backBtnClickBlock)(void);
-
-/**
- *  背景透明度
+ *  背景透明度，默认1
  */
 @property (assign, nonatomic) CGFloat bgAlpha;
 
-@property (assign, nonatomic) IBInspectable DSLNavigationBarTitleStyle titleStyle;
+/**
+ *  title的样式，有三种：Lable、SegmentedControl、Button，默认DSLNavigationBarTitleStyleLable
+ */
+@property (assign, nonatomic) DSLNavigationBarTitleStyle titleStyle;
+
+/**
+ *  同上，取值0-2，能在IB设置，默认0
+ */
+@property (assign, nonatomic) IBInspectable NSInteger IBTitleStyle;
+
+/**
+ *  默认120
+ */
+@property (assign, nonatomic) IBInspectable CGFloat segmentWidth;
+
+/**
+ *  segment title at index 0
+ */
+@property (strong, nonatomic) IBInspectable NSString *segmentTitle0;
+
+/**
+ *  segment title at index 1
+ */
+@property (strong, nonatomic) IBInspectable NSString *segmentTitle1;
+
+/**
+ *  title Lable
+ */
+@property (nonatomic, strong, readonly) UILabel *titleLabel;
+
+/**
+ *  title SegmentedControl
+ */
+@property (nonatomic, strong, readonly) UISegmentedControl *titleSegment;
+
+/**
+ *  title Button
+ */
+@property (nonatomic, strong, readonly) UIButton *titleButton;
 
 @end
