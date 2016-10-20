@@ -142,6 +142,7 @@ static CGFloat const kHeightScale = 0.9;
             }];
         }
     } else if (_navc.type == 1) {
+        //模仿系统push
         if (_isPush) {
             toView.frame = CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight);
             toView.layer.shadowOpacity = 0.5;
@@ -171,13 +172,70 @@ static CGFloat const kHeightScale = 0.9;
             }];
         }
     } else if (_navc.type == 2) {
-        //参照type=0，1，定义你自己的转场方式。
+        //碎片fragment
         if (_isPush) {
-            ;
+            UIView *toViewSnapshot = [toView snapshotViewAfterScreenUpdates:YES];
+            [containerView insertSubview:toView belowSubview:fromView];
+            CGFloat fragmentSize = 20;
+            NSInteger column = fromView.frame.size.width / fragmentSize + 1;
+            NSInteger row = fromView.frame.size.height / fragmentSize + 1;
+            NSMutableArray *fragments = [NSMutableArray array];
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < column; j++) {
+                    UIView *fragmentView = [toViewSnapshot resizableSnapshotViewFromRect:CGRectMake(j * fragmentSize, i * fragmentSize, fragmentSize, fragmentSize)
+                                                                  afterScreenUpdates:NO
+                                                                       withCapInsets:UIEdgeInsetsZero];
+                    fragmentView.frame = CGRectMake(j * fragmentSize, i * fragmentSize, fragmentSize, fragmentSize);
+                    [fragments addObject:fragmentView];
+                    [containerView addSubview:fragmentView];
+                    fragmentView.transform = CGAffineTransformTranslate(fragmentView.transform, arc4random() % 30 * 50, 0);
+                    fragmentView.alpha = 0;
+                }
+            }
+            [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                for (UIView *fragmentView in fragments) {
+                    fragmentView.transform = CGAffineTransformIdentity;
+                    fragmentView.alpha = 1;
+                }
+            } completion:^(BOOL finished) {
+                for (UIView *fragmentView in fragments) {
+                    [fragmentView removeFromSuperview];
+                }
+                [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+            }];
         } else {
-            ;
+            UIView *fromViewSnapshot = [fromView snapshotViewAfterScreenUpdates:YES];
+            [containerView addSubview:toView];
+            toView.frame = fromView.bounds;
+            CGFloat fragmentSize = 20;
+            NSInteger column = fromView.frame.size.width / fragmentSize + 1;
+            NSInteger row = fromView.frame.size.height / fragmentSize + 1;
+            NSMutableArray *fragments = [NSMutableArray array];
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < column; j++) {
+                    UIView *fragmentView = [fromViewSnapshot resizableSnapshotViewFromRect:CGRectMake(j * fragmentSize, i * fragmentSize, fragmentSize, fragmentSize)
+                                                                      afterScreenUpdates:NO
+                                                                           withCapInsets:UIEdgeInsetsZero];
+                    fragmentView.frame = CGRectMake(j * fragmentSize, i * fragmentSize, fragmentSize, fragmentSize);
+                    [fragments addObject:fragmentView];
+                    [containerView addSubview:fragmentView];
+                    fragmentView.alpha = 1;
+                }
+            }
+            [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                for (UIView *fragmentView in fragments) {
+                    fragmentView.transform = CGAffineTransformTranslate(fragmentView.transform, arc4random() % 30 * 50, 0);
+                    fragmentView.alpha = 0;
+                }
+            } completion:^(BOOL finished) {
+                for (UIView *fragmentView in fragments) {
+                    [fragmentView removeFromSuperview];
+                }
+                [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+            }];
         }
     }
+    //参照type=0，1，定义你自己的转场方式。
 }
 
 #pragma mark - UINavigationControllerDelegate

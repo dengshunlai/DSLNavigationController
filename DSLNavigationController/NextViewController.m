@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.dsl_navigationBar.bgAlpha = 0;
 }
 
 - (void)didReceiveMemoryWarning {
