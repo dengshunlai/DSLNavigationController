@@ -9,3 +9,5 @@ A custom NavigationController and custom NavigationBar
 ![](https://github.com/dengshunlai/DSLNavigationController/raw/master/2.png)
 
 ![](https://github.com/dengshunlai/DSLNavigationController/raw/master/3.png)
+
+![](https://github.com/dengshunlai/DSLNavigationController/raw/master/4.png)

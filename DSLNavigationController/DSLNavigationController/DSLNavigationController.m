@@ -182,9 +182,7 @@ static CGFloat const kHeightScale = 0.9;
             NSMutableArray *fragments = [NSMutableArray array];
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < column; j++) {
-                    UIView *fragmentView = [toViewSnapshot resizableSnapshotViewFromRect:CGRectMake(j * fragmentSize, i * fragmentSize, fragmentSize, fragmentSize)
-                                                                  afterScreenUpdates:NO
-                                                                       withCapInsets:UIEdgeInsetsZero];
+                    UIView *fragmentView = [toViewSnapshot resizableSnapshotViewFromRect:CGRectMake(j * fragmentSize, i * fragmentSize, fragmentSize, fragmentSize) afterScreenUpdates:NO withCapInsets:UIEdgeInsetsZero];
                     fragmentView.frame = CGRectMake(j * fragmentSize, i * fragmentSize, fragmentSize, fragmentSize);
                     [fragments addObject:fragmentView];
                     [containerView addSubview:fragmentView];
@@ -213,9 +211,7 @@ static CGFloat const kHeightScale = 0.9;
             NSMutableArray *fragments = [NSMutableArray array];
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < column; j++) {
-                    UIView *fragmentView = [fromViewSnapshot resizableSnapshotViewFromRect:CGRectMake(j * fragmentSize, i * fragmentSize, fragmentSize, fragmentSize)
-                                                                      afterScreenUpdates:NO
-                                                                           withCapInsets:UIEdgeInsetsZero];
+                    UIView *fragmentView = [fromViewSnapshot resizableSnapshotViewFromRect:CGRectMake(j * fragmentSize, i * fragmentSize, fragmentSize, fragmentSize) afterScreenUpdates:NO withCapInsets:UIEdgeInsetsZero];
                     fragmentView.frame = CGRectMake(j * fragmentSize, i * fragmentSize, fragmentSize, fragmentSize);
                     [fragments addObject:fragmentView];
                     [containerView addSubview:fragmentView];
