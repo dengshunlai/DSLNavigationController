@@ -8,6 +8,7 @@
 
 #import "NextViewController.h"
 #import "UIViewController+DSLNavigationBar.h"
+#import "DSLNavigationController.h"
 
 @interface NextViewController ()
 
@@ -19,6 +20,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.dsl_navigationBar.bgAlpha = 0;
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    //恢复原来的转场动画
+    DSLNavigationController *nc = (DSLNavigationController *)self.navigationController;
+    nc.type = 0;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //改变转场动画
+    DSLNavigationController *nc = (DSLNavigationController *)self.navigationController;
+    nc.type = 2;
 }
 
 - (void)didReceiveMemoryWarning {
