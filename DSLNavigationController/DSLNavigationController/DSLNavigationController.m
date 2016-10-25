@@ -16,7 +16,7 @@ static CGFloat const kHeightScale = 0.9;
 
 @interface DSLNavigationController () <UINavigationControllerDelegate>
 
-@property (nonatomic, strong) InteractiveAnimator *animator;
+@property (nonatomic, strong) DSLInteractiveAnimator *animator;
 
 @end
 
@@ -70,7 +70,7 @@ static CGFloat const kHeightScale = 0.9;
         [self.view sendSubviewToBack:self.navigationBar];
     } else {
         if (!_animator) {
-            _animator = [[InteractiveAnimator alloc] initWithNavc:self];
+            _animator = [[DSLInteractiveAnimator alloc] initWithNavc:self];
             self.navigationBarHidden = YES;
             self.delegate = _animator;
             self.interactivePopGestureRecognizer.enabled = NO;
@@ -81,7 +81,7 @@ static CGFloat const kHeightScale = 0.9;
 @end
 
 
-@interface InteractiveAnimator ()
+@interface DSLInteractiveAnimator ()
 
 @property (nonatomic, assign) BOOL isPush;
 @property (nonatomic, assign) BOOL isInteractive;
@@ -89,7 +89,7 @@ static CGFloat const kHeightScale = 0.9;
 
 @end
 
-@implementation InteractiveAnimator
+@implementation DSLInteractiveAnimator
 
 - (instancetype)initWithNavc:(DSLNavigationController *)navc
 {

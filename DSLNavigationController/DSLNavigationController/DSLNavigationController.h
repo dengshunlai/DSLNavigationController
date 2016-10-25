@@ -28,7 +28,7 @@
 @end
 
 
-@interface InteractiveAnimator : UIPercentDrivenInteractiveTransition <UIViewControllerAnimatedTransitioning, UINavigationControllerDelegate>
+@interface DSLInteractiveAnimator : UIPercentDrivenInteractiveTransition <UIViewControllerAnimatedTransitioning, UINavigationControllerDelegate>
 
 - (instancetype)initWithNavc:(DSLNavigationController *)navc;
 
