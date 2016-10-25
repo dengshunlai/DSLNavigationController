@@ -26,3 +26,10 @@
 - (instancetype)initWithRootViewController:(UIViewController *)rootViewController type:(NSInteger)type;
 
 @end
+
+
+@interface InteractiveAnimator : UIPercentDrivenInteractiveTransition <UIViewControllerAnimatedTransitioning, UINavigationControllerDelegate>
+
+- (instancetype)initWithNavc:(DSLNavigationController *)navc;
+
+@end

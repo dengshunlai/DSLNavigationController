@@ -14,12 +14,6 @@ static CGFloat const kHeightScale = 0.9;
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 
-@interface InteractiveAnimator : UIPercentDrivenInteractiveTransition <UIViewControllerAnimatedTransitioning, UINavigationControllerDelegate>
-
-- (instancetype)initWithNavc:(DSLNavigationController *)navc;
-
-@end
-
 @interface DSLNavigationController () <UINavigationControllerDelegate>
 
 @property (nonatomic, strong) InteractiveAnimator *animator;
@@ -85,6 +79,7 @@ static CGFloat const kHeightScale = 0.9;
 }
 
 @end
+
 
 @interface InteractiveAnimator ()
 
