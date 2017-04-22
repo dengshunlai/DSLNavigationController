@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		DD0C4B271D56F241001A9B48 /* SgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0C4B261D56F241001A9B48 /* SgViewController.m */; };
 		DD0C4B2A1D56F249001A9B48 /* BtnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0C4B291D56F249001A9B48 /* BtnViewController.m */; };
-		DD5DCA6A1D54D42700F005A3 /* DSLBack.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5DCA691D54D42700F005A3 /* DSLBack.png */; };
 		DD8AE0C91D538746007234BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8AE0C81D538746007234BE /* main.m */; };
 		DD8AE0CC1D538746007234BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8AE0CB1D538746007234BE /* AppDelegate.m */; };
 		DD8AE0CF1D538746007234BE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8AE0CE1D538746007234BE /* ViewController.m */; };
@@ -18,10 +17,12 @@
 		DD8AE0D71D538746007234BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD8AE0D51D538746007234BE /* LaunchScreen.storyboard */; };
 		DD8AE0E21D538746007234BE /* DSLNavigationControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8AE0E11D538746007234BE /* DSLNavigationControllerTests.m */; };
 		DD8AE0ED1D538747007234BE /* DSLNavigationControllerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8AE0EC1D538747007234BE /* DSLNavigationControllerUITests.m */; };
-		DD8AE0FD1D538768007234BE /* DSLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8AE0FC1D538768007234BE /* DSLNavigationController.m */; };
-		DD8AE1001D53878E007234BE /* DSLNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8AE0FF1D53878E007234BE /* DSLNavigationBar.m */; };
-		DD946FF61D55CF4100D70B46 /* UIViewController+DSLNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DD946FF51D55CF4100D70B46 /* UIViewController+DSLNavigationBar.m */; };
 		DD946FF81D5606BD00D70B46 /* picture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD946FF71D5606BD00D70B46 /* picture.jpg */; };
+		DDC45A361EAB3BB20056853F /* DSLBack.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC45A2F1EAB3BB20056853F /* DSLBack.png */; };
+		DDC45A371EAB3BB20056853F /* DSLNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC45A311EAB3BB20056853F /* DSLNavigationBar.m */; };
+		DDC45A381EAB3BB20056853F /* DSLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC45A331EAB3BB20056853F /* DSLNavigationController.m */; };
+		DDC45A391EAB3BB20056853F /* UIViewController+DSLNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC45A351EAB3BB20056853F /* UIViewController+DSLNavigationBar.m */; };
+		DDC45A3B1EAB3BB70056853F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = DDC45A3A1EAB3BB70056853F /* README.md */; };
 		DDF9536E1D559FD90032E642 /* NextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF9536D1D559FD90032E642 /* NextViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +48,6 @@
 		DD0C4B261D56F241001A9B48 /* SgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SgViewController.m; sourceTree = "<group>"; };
 		DD0C4B281D56F249001A9B48 /* BtnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BtnViewController.h; sourceTree = "<group>"; };
 		DD0C4B291D56F249001A9B48 /* BtnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BtnViewController.m; sourceTree = "<group>"; };
-		DD5DCA691D54D42700F005A3 /* DSLBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DSLBack.png; sourceTree = "<group>"; };
 		DD8AE0C41D538746007234BE /* DSLNavigationController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSLNavigationController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8AE0C81D538746007234BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DD8AE0CA1D538746007234BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -64,13 +64,15 @@
 		DD8AE0E81D538747007234BE /* DSLNavigationControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSLNavigationControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8AE0EC1D538747007234BE /* DSLNavigationControllerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSLNavigationControllerUITests.m; sourceTree = "<group>"; };
 		DD8AE0EE1D538747007234BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD8AE0FB1D538768007234BE /* DSLNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLNavigationController.h; sourceTree = "<group>"; };
-		DD8AE0FC1D538768007234BE /* DSLNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLNavigationController.m; sourceTree = "<group>"; };
-		DD8AE0FE1D53878E007234BE /* DSLNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLNavigationBar.h; sourceTree = "<group>"; };
-		DD8AE0FF1D53878E007234BE /* DSLNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLNavigationBar.m; sourceTree = "<group>"; };
-		DD946FF41D55CF4100D70B46 /* UIViewController+DSLNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DSLNavigationBar.h"; sourceTree = "<group>"; };
-		DD946FF51D55CF4100D70B46 /* UIViewController+DSLNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DSLNavigationBar.m"; sourceTree = "<group>"; };
 		DD946FF71D5606BD00D70B46 /* picture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = picture.jpg; sourceTree = "<group>"; };
+		DDC45A2F1EAB3BB20056853F /* DSLBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DSLBack.png; sourceTree = "<group>"; };
+		DDC45A301EAB3BB20056853F /* DSLNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLNavigationBar.h; sourceTree = "<group>"; };
+		DDC45A311EAB3BB20056853F /* DSLNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLNavigationBar.m; sourceTree = "<group>"; };
+		DDC45A321EAB3BB20056853F /* DSLNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSLNavigationController.h; sourceTree = "<group>"; };
+		DDC45A331EAB3BB20056853F /* DSLNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLNavigationController.m; sourceTree = "<group>"; };
+		DDC45A341EAB3BB20056853F /* UIViewController+DSLNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DSLNavigationBar.h"; sourceTree = "<group>"; };
+		DDC45A351EAB3BB20056853F /* UIViewController+DSLNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DSLNavigationBar.m"; sourceTree = "<group>"; };
+		DDC45A3A1EAB3BB70056853F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DDF9536C1D559FD90032E642 /* NextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextViewController.h; sourceTree = "<group>"; };
 		DDF9536D1D559FD90032E642 /* NextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,7 +105,9 @@
 		DD8AE0BB1D538746007234BE = {
 			isa = PBXGroup;
 			children = (
-				DD8AE0C61D538746007234BE /* DSLNavigationController */,
+				DDC45A3A1EAB3BB70056853F /* README.md */,
+				DDC45A2E1EAB3BB20056853F /* DSLNavigationController */,
+				DD8AE0C61D538746007234BE /* DSLNavigationControllerExample */,
 				DD8AE0E01D538746007234BE /* DSLNavigationControllerTests */,
 				DD8AE0EB1D538747007234BE /* DSLNavigationControllerUITests */,
 				DD8AE0C51D538746007234BE /* Products */,
@@ -120,10 +124,9 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DD8AE0C61D538746007234BE /* DSLNavigationController */ = {
+		DD8AE0C61D538746007234BE /* DSLNavigationControllerExample */ = {
 			isa = PBXGroup;
 			children = (
-				DD8AE0FA1D538768007234BE /* DSLNavigationController */,
 				DD8AE0CA1D538746007234BE /* AppDelegate.h */,
 				DD8AE0CB1D538746007234BE /* AppDelegate.m */,
 				DD8AE0CD1D538746007234BE /* ViewController.h */,
@@ -141,7 +144,7 @@
 				DD8AE0D81D538746007234BE /* Info.plist */,
 				DD8AE0C71D538746007234BE /* Supporting Files */,
 			);
-			path = DSLNavigationController;
+			path = DSLNavigationControllerExample;
 			sourceTree = "<group>";
 		};
 		DD8AE0C71D538746007234BE /* Supporting Files */ = {
@@ -170,16 +173,16 @@
 			path = DSLNavigationControllerUITests;
 			sourceTree = "<group>";
 		};
-		DD8AE0FA1D538768007234BE /* DSLNavigationController */ = {
+		DDC45A2E1EAB3BB20056853F /* DSLNavigationController */ = {
 			isa = PBXGroup;
 			children = (
-				DD5DCA691D54D42700F005A3 /* DSLBack.png */,
-				DD8AE0FB1D538768007234BE /* DSLNavigationController.h */,
-				DD8AE0FC1D538768007234BE /* DSLNavigationController.m */,
-				DD8AE0FE1D53878E007234BE /* DSLNavigationBar.h */,
-				DD8AE0FF1D53878E007234BE /* DSLNavigationBar.m */,
-				DD946FF41D55CF4100D70B46 /* UIViewController+DSLNavigationBar.h */,
-				DD946FF51D55CF4100D70B46 /* UIViewController+DSLNavigationBar.m */,
+				DDC45A2F1EAB3BB20056853F /* DSLBack.png */,
+				DDC45A301EAB3BB20056853F /* DSLNavigationBar.h */,
+				DDC45A311EAB3BB20056853F /* DSLNavigationBar.m */,
+				DDC45A321EAB3BB20056853F /* DSLNavigationController.h */,
+				DDC45A331EAB3BB20056853F /* DSLNavigationController.m */,
+				DDC45A341EAB3BB20056853F /* UIViewController+DSLNavigationBar.h */,
+				DDC45A351EAB3BB20056853F /* UIViewController+DSLNavigationBar.m */,
 			);
 			path = DSLNavigationController;
 			sourceTree = "<group>";
@@ -251,7 +254,7 @@
 				TargetAttributes = {
 					DD8AE0C31D538746007234BE = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = UJ6ZZAPFYZ;
+						DevelopmentTeam = QTRV8G9WAU;
 					};
 					DD8AE0DC1D538746007234BE = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -290,9 +293,9 @@
 			files = (
 				DD8AE0D71D538746007234BE /* LaunchScreen.storyboard in Resources */,
 				DD946FF81D5606BD00D70B46 /* picture.jpg in Resources */,
+				DDC45A361EAB3BB20056853F /* DSLBack.png in Resources */,
 				DD8AE0D41D538746007234BE /* Assets.xcassets in Resources */,
 				DD8AE0D21D538746007234BE /* Main.storyboard in Resources */,
-				DD5DCA6A1D54D42700F005A3 /* DSLBack.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,12 +322,13 @@
 			files = (
 				DD8AE0CF1D538746007234BE /* ViewController.m in Sources */,
 				DDF9536E1D559FD90032E642 /* NextViewController.m in Sources */,
-				DD8AE1001D53878E007234BE /* DSLNavigationBar.m in Sources */,
+				DDC45A3B1EAB3BB70056853F /* README.md in Sources */,
 				DD8AE0CC1D538746007234BE /* AppDelegate.m in Sources */,
+				DDC45A391EAB3BB20056853F /* UIViewController+DSLNavigationBar.m in Sources */,
+				DDC45A381EAB3BB20056853F /* DSLNavigationController.m in Sources */,
 				DD8AE0C91D538746007234BE /* main.m in Sources */,
-				DD8AE0FD1D538768007234BE /* DSLNavigationController.m in Sources */,
 				DD0C4B271D56F241001A9B48 /* SgViewController.m in Sources */,
-				DD946FF61D55CF4100D70B46 /* UIViewController+DSLNavigationBar.m in Sources */,
+				DDC45A371EAB3BB20056853F /* DSLNavigationBar.m in Sources */,
 				DD0C4B2A1D56F249001A9B48 /* BtnViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,11 +472,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = UJ6ZZAPFYZ;
-				INFOPLIST_FILE = DSLNavigationController/Info.plist;
+				DEVELOPMENT_TEAM = QTRV8G9WAU;
+				INFOPLIST_FILE = DSLNavigationControllerExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dsl.DSLNavigationController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dengshunlai.DSLNavigationController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -481,11 +485,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = UJ6ZZAPFYZ;
-				INFOPLIST_FILE = DSLNavigationController/Info.plist;
+				DEVELOPMENT_TEAM = QTRV8G9WAU;
+				INFOPLIST_FILE = DSLNavigationControllerExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dsl.DSLNavigationController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dengshunlai.DSLNavigationController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
