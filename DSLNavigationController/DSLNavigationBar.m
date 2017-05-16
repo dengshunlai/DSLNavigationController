@@ -64,6 +64,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
     _bgAlpha = 1;
     [self createBackBtn];
     self.titleStyle = DSLNavigationBarTitleStyleLable;
+    self.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)drawRect:(CGRect)rect
