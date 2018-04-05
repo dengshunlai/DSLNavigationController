@@ -124,15 +124,18 @@ static CGFloat const kHeightScale = 0.9;
                 fromView.transform = CGAffineTransformScale(fromView.transform, kWidthScale, kHeightScale);
                 toView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
             } completion:^(BOOL finished) {
+                fromView.transform = CGAffineTransformIdentity;
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             }];
         } else {
+            toView.transform = CGAffineTransformScale(toView.transform, kWidthScale, kHeightScale);
             [containerView insertSubview:toView belowSubview:fromView];
             
             [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 toView.transform = CGAffineTransformIdentity;
                 fromView.frame = CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight);
             } completion:^(BOOL finished) {
+                toView.transform = CGAffineTransformIdentity;
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             }];
         }
