@@ -104,6 +104,9 @@ static CGFloat const kHeightScale = 0.9;
 
 - (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext
 {
+    if (_navc.type == 2) {
+        return 0.5;
+    }
     return 0.35;
 }
 
@@ -172,15 +175,14 @@ static CGFloat const kHeightScale = 0.9;
     } else if (_navc.type == 2) {
         //碎片fragment
         if (_isPush) {
-            UIView *toViewSnapshot = [toView snapshotViewAfterScreenUpdates:YES];
             [containerView insertSubview:toView belowSubview:fromView];
-            CGFloat fragmentSize = 20;
+            CGFloat fragmentSize = 50;
             NSInteger column = fromView.frame.size.width / fragmentSize + 1;
             NSInteger row = fromView.frame.size.height / fragmentSize + 1;
             NSMutableArray *fragments = [NSMutableArray array];
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < column; j++) {
-                    UIView *fragmentView = [toViewSnapshot resizableSnapshotViewFromRect:CGRectMake(j * fragmentSize, i * fragmentSize, fragmentSize, fragmentSize) afterScreenUpdates:NO withCapInsets:UIEdgeInsetsZero];
+                    UIView *fragmentView = [toView resizableSnapshotViewFromRect:CGRectMake(j * fragmentSize, i * fragmentSize, fragmentSize, fragmentSize) afterScreenUpdates:YES withCapInsets:UIEdgeInsetsZero];
                     fragmentView.frame = CGRectMake(j * fragmentSize, i * fragmentSize, fragmentSize, fragmentSize);
                     [fragments addObject:fragmentView];
                     [containerView addSubview:fragmentView];
@@ -188,7 +190,7 @@ static CGFloat const kHeightScale = 0.9;
                     fragmentView.alpha = 0;
                 }
             }
-            [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 for (UIView *fragmentView in fragments) {
                     fragmentView.transform = CGAffineTransformIdentity;
                     fragmentView.alpha = 1;
@@ -200,23 +202,22 @@ static CGFloat const kHeightScale = 0.9;
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             }];
         } else {
-            UIView *fromViewSnapshot = [fromView snapshotViewAfterScreenUpdates:YES];
             [containerView addSubview:toView];
             toView.frame = fromView.bounds;
-            CGFloat fragmentSize = 20;
+            CGFloat fragmentSize = 50;
             NSInteger column = fromView.frame.size.width / fragmentSize + 1;
             NSInteger row = fromView.frame.size.height / fragmentSize + 1;
             NSMutableArray *fragments = [NSMutableArray array];
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < column; j++) {
-                    UIView *fragmentView = [fromViewSnapshot resizableSnapshotViewFromRect:CGRectMake(j * fragmentSize, i * fragmentSize, fragmentSize, fragmentSize) afterScreenUpdates:NO withCapInsets:UIEdgeInsetsZero];
+                    UIView *fragmentView = [fromView resizableSnapshotViewFromRect:CGRectMake(j * fragmentSize, i * fragmentSize, fragmentSize, fragmentSize) afterScreenUpdates:NO withCapInsets:UIEdgeInsetsZero];
                     fragmentView.frame = CGRectMake(j * fragmentSize, i * fragmentSize, fragmentSize, fragmentSize);
                     [fragments addObject:fragmentView];
                     [containerView addSubview:fragmentView];
                     fragmentView.alpha = 1;
                 }
             }
-            [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 for (UIView *fragmentView in fragments) {
                     fragmentView.transform = CGAffineTransformTranslate(fragmentView.transform, arc4random() % 30 * 50, 0);
                     fragmentView.alpha = 0;
