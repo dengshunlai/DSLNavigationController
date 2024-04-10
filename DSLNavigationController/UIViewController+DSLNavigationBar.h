@@ -16,4 +16,6 @@
  */
 @property (weak, nonatomic) DSLNavigationBar *dsl_navigationBar;
 
+- (void)dsl_setupNavigationBar;
+
 @end

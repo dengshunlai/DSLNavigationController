@@ -75,12 +75,24 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
     CGContextFillRect(context, CGRectMake(0, self.frame.size.height - 1, self.frame.size.width, 1));
 }
 
+- (CGSize)intrinsicContentSize {
+    return CGSizeMake([UIScreen mainScreen].bounds.size.width, 44 + [self safeAreaTop]);
+}
+
+- (CGFloat)safeAreaTop {
+    if (@available(iOS 11.0, *)) {
+        return [UIApplication sharedApplication].keyWindow.safeAreaInsets.top;
+    } else {
+        return 20;
+    }
+}
+
 #pragma mark - Create UI
 
 - (void)createBackBtn
 {
     _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _backBtn.frame = CGRectMake(0, 20, 44, 44);
+    _backBtn.frame = CGRectMake(0, [self safeAreaTop], 44 * 112 / 98.0, 44);
     [self addSubview:_backBtn];
     [_backBtn setImage:[UIImage imageNamed:@"DSLBack"] forState:UIControlStateNormal];
     [_backBtn addTarget:self action:@selector(pop:) forControlEvents:UIControlEventTouchUpInside];
@@ -353,10 +365,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
         _titleLabel.textColor = UIColorFromRGB(0x333333);
         [self addSubview:_titleLabel];
         _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[_titleLabel]|"
-                                                                     options:0
-                                                                     metrics:nil
-                                                                       views:NSDictionaryOfVariableBindings(_titleLabel)]];
+        [self addConstraints:
+         [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-%.0f-[_titleLabel]|", [self safeAreaTop]]
+                                                 options:0
+                                                 metrics:nil
+                                                   views:NSDictionaryOfVariableBindings(_titleLabel)]];
         self.titleLabelCenterXConstraint = [NSLayoutConstraint constraintWithItem:self
                                                                         attribute:NSLayoutAttributeCenterX
                                                                         relatedBy:NSLayoutRelationEqual
@@ -382,7 +395,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
                                                             toItem:_titleSegment
                                                          attribute:NSLayoutAttributeCenterY
                                                         multiplier:1
-                                                          constant:-10]];
+                                                          constant:-[self safeAreaTop] / 2]];
         self.titleSegmentCenterXConstraint = [NSLayoutConstraint constraintWithItem:self
                                                                           attribute:NSLayoutAttributeCenterX
                                                                           relatedBy:NSLayoutRelationEqual
@@ -409,7 +422,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
                                                             toItem:_titleButton
                                                          attribute:NSLayoutAttributeCenterY
                                                         multiplier:1
-                                                          constant:-10]];
+                                                          constant:-[self safeAreaTop] / 2]];
         self.titleButtonCenterXConstraint = [NSLayoutConstraint constraintWithItem:self
                                                                          attribute:NSLayoutAttributeCenterX
                                                                          relatedBy:NSLayoutRelationEqual
@@ -434,7 +447,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
                                                             toItem:_activityIndicator
                                                          attribute:NSLayoutAttributeCenterY
                                                         multiplier:1
-                                                          constant:-10]];
+                                                          constant:-[self safeAreaTop] / 2]];
     }
     return _activityIndicator;
 }

@@ -8,6 +8,7 @@
 
 #import "BtnViewController.h"
 #import "UIViewController+DSLNavigationBar.h"
+#import "CodeViewController.h"
 
 @interface BtnViewController ()
 
@@ -36,6 +37,11 @@
         self.dsl_navigationBar.showActivityIndicator = NO;
         sender.tag = 0;
     }
+}
+
+- (IBAction)clickBtn:(UIButton *)sender {
+    CodeViewController *vc = [[CodeViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

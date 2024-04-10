@@ -11,7 +11,7 @@
 @interface DSLNavigationController : UINavigationController
 
 /**
- *  转场类型，默认为0，可以在实现文件中定义自己的转场类型，99为系统原生转场动画
+ *  转场类型，默认为0，可以在实现文件中定义自己的转场类型，1为模拟系统原生转场动画
  */
 @property (nonatomic, assign) IBInspectable NSInteger type;
 

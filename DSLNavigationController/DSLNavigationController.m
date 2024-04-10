@@ -60,21 +60,11 @@ static CGFloat const kHeightScale = 0.9;
 - (void)setType:(NSInteger)type
 {
     _type = type;
-    if (_type == 99) {
-        if (_animator) {
-            _animator = nil;
-            self.navigationBarHidden = NO;
-            self.delegate = nil;
-            self.interactivePopGestureRecognizer.enabled = YES;
-        }
-        [self.view sendSubviewToBack:self.navigationBar];
-    } else {
-        if (!_animator) {
-            _animator = [[DSLInteractiveAnimator alloc] initWithNavc:self];
-            self.navigationBarHidden = YES;
-            self.delegate = _animator;
-            self.interactivePopGestureRecognizer.enabled = NO;
-        }
+    if (!_animator) {
+        _animator = [[DSLInteractiveAnimator alloc] initWithNavc:self];
+        self.navigationBarHidden = YES;
+        self.delegate = _animator;
+        self.interactivePopGestureRecognizer.enabled = NO;
     }
 }
 
@@ -159,6 +149,7 @@ static CGFloat const kHeightScale = 0.9;
                 [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             }];
         } else {
+            toView.frame = CGRectMake(- kScreenWidth / 4, 0, kScreenWidth, kScreenHeight);
             [containerView insertSubview:toView belowSubview:fromView];
             fromView.layer.shadowOpacity = 0.5;
             fromView.layer.shadowOffset = CGSizeMake(-5, 5);

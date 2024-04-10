@@ -29,4 +29,13 @@
     objc_setAssociatedObject(self, @selector(dsl_navigationBar), dsl_navigationBar, OBJC_ASSOCIATION_ASSIGN);
 }
 
+- (void)dsl_setupNavigationBar {
+    DSLNavigationBar *topbar = [[DSLNavigationBar alloc] init];
+    self.dsl_navigationBar = topbar;
+    [self.view addSubview:topbar];
+    topbar.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[topbar]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(topbar)]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:topbar attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+}
+
 @end

@@ -33,7 +33,7 @@ IB_DESIGNABLE
 @property (nonatomic, strong) IBInspectable UIColor *titleColor;
 
 /**
- *  返回按钮的frame，默认(0,20,44,44)
+ *  返回按钮的frame
  */
 @property (assign, nonatomic) IBInspectable CGRect backFrame;
 

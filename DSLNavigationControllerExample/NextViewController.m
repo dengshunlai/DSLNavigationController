@@ -9,6 +9,7 @@
 #import "NextViewController.h"
 #import "UIViewController+DSLNavigationBar.h"
 #import "DSLNavigationController.h"
+#import "BtnViewController.h"
 
 @interface NextViewController ()
 
@@ -35,7 +36,11 @@
 {
     //改变转场动画
     DSLNavigationController *nc = (DSLNavigationController *)self.navigationController;
-    nc.type = 2;
+    if ([segue.destinationViewController isKindOfClass:[BtnViewController class]]) {
+        nc.type = 1;
+    } else {
+        nc.type = 2;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
